@@ -10,6 +10,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const [history, setHistory] = useState(
+    JSON.parse(localStorage.getItem("history")) || []
+  );
 
   return (
     <div className="app">
@@ -17,6 +20,8 @@ function App() {
         setPrompt={setPrompt}
         setResponse={setResponse}
         setError={setError}
+        history={history}
+        setLoading={setLoading}
       />
 
       <main className="main">
@@ -30,6 +35,8 @@ function App() {
           setLoading={setLoading}
           error={error}
           setError={setError}
+          history={history}
+          setHistory={setHistory}
         />
       </main>
     </div>

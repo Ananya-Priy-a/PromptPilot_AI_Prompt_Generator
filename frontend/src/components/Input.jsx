@@ -7,6 +7,8 @@ function Input({
   setLoading,
   error,
   setError,
+  history,
+  setHistory,
 }) {
 
   const handleSend = async () => {
@@ -34,6 +36,20 @@ function Input({
       const data = await res.json();
 
       setResponse(data.response);
+
+      const newChat = {
+        prompt,
+        response: data.response,
+      };
+
+      const updatedHistory = [...history, newChat];
+
+      setHistory(updatedHistory);
+
+      localStorage.setItem(
+        "history",
+        JSON.stringify(updatedHistory)
+      );
 
     } catch (err) {
 
@@ -67,7 +83,7 @@ function Input({
       {error && <p>{error}</p>}
 
       {response && (
-        <div>
+        <div className="response-box">
           <h3>Response</h3>
           <p>{response}</p>
         </div>
