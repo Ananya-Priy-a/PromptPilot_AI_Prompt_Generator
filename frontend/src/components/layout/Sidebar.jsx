@@ -1,4 +1,5 @@
-import Button from "./Button";
+import Button from "../ui/Button";
+import logo from "../../assets/logo.png";
 
 function Sidebar({ setPrompt, setResponse, setError, history, setLoading}) {
   const clearChat = () => {
@@ -15,7 +16,10 @@ function Sidebar({ setPrompt, setResponse, setError, history, setLoading}) {
   
   return (
     <aside className="sidebar">
-      <h2>PromptPilot</h2>
+      <div className="logo-section">
+        <img src={logo} alt="PromptPilot Logo" />
+        <h2>PromptPilot</h2>
+      </div>
 
       <Button
         text="Home"
