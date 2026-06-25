@@ -1,3 +1,4 @@
+import Button from "../ui/Button";
 function Input({
   prompt,
   setPrompt,
@@ -71,13 +72,11 @@ function Input({
         onChange={(e) => setPrompt(e.target.value)}
       />
 
-      <button
+      <Button
+        text="Send"
         className="send-btn"
         onClick={handleSend}
-      >
-        Send
-      </button>
-
+      />
       {loading && <p>Generating response...</p>}
 
       {error && <p>{error}</p>}
