@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 import logo from "../../assets/logo.png";
 
-function Sidebar({ setPrompt, setResponse, setError, history, setLoading}) {
+function Sidebar({ setPrompt, setResponse, setError, history, setLoading }) {
   const clearChat = () => {
     setPrompt("");
     setResponse("");
@@ -12,8 +12,8 @@ function Sidebar({ setPrompt, setResponse, setError, history, setLoading}) {
     setResponse(chat.response);
     setError("");
     setLoading(false);
-};
-  
+  };
+
   return (
     <aside className="sidebar">
       <div className="logo-section">
@@ -35,10 +35,10 @@ function Sidebar({ setPrompt, setResponse, setError, history, setLoading}) {
 
       <div className="history">
         <h3>History</h3>
-        
-        {history.map((chat, index) => (
+
+        {[...history].reverse().map((chat, index) => (
           <div
-            key={index}
+            key={chat.id || index}
             className="history-item"
             onClick={() => openChat(chat)}
           >
