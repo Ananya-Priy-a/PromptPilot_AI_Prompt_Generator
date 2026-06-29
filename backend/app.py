@@ -23,17 +23,26 @@ def generate():
     data = request.json
 
     prompt = data.get("prompt")
+    model = data.get("model", "fast")
 
     if not prompt:
         return jsonify({
             "error": "Prompt required"
         }), 400
 
+    model_options = {
+    "fast": "openai/gpt-4o-mini",
+    "balanced": "google/gemma-4-26b-a4b-it:free",
+    "deep": "openai/gpt-oss-120b:free"
+    }
+
 
     try:
 
+        selected_model = model_options.get(model, model_options["fast"])
         result = client.chat.completions.create(
-        model="openai/gpt-4o-mini",
+        model=selected_model,
+
         messages=[
             {
                 "role": "user",
@@ -41,8 +50,6 @@ def generate():
             }
         ]
     )
-
-
         answer = result.choices[0].message.content
 
 

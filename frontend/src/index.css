@@ -87,7 +87,12 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  overflow-y: auto;
 }
+
+/* ===================== */
+/* HEADER */
+/* ===================== */
 
 .header-section {
   display: flex;
@@ -140,15 +145,65 @@ textarea::placeholder {
 }
 
 /* ===================== */
+/* ACTION ROW */
+/* ===================== */
+
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+/* ===================== */
+/* MODEL SELECTOR */
+/* ===================== */
+
+.model-selector {
+  width: 220px;
+  padding: 12px 16px;
+
+  background: var(--bg-input);
+  color: var(--text-primary);
+
+  border: 1px solid var(--color-primary);
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.model-selector:focus {
+  border-color: var(--color-accent-border);
+}
+
+/* ===================== */
 /* BUTTONS */
 /* ===================== */
 
-.send-btn,
 .sidebar-home,
 .sidebar-newc {
   width: 100%;
   padding: 14px;
   margin-top: 12px;
+  border: none;
+  border-radius: 14px;
+  background: var(--color-primary);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-btn {
+  width: 180px;
+  padding: 14px;
   border: none;
   border-radius: 14px;
   background: var(--color-primary);
@@ -177,8 +232,10 @@ textarea::placeholder {
   padding: 18px;
   border-radius: 18px;
   border-left: 4px solid var(--color-accent-border);
-  height: 250px;
+
+  max-height: 250px;
   overflow-y: auto;
+
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -214,6 +271,12 @@ textarea::placeholder {
 .history-item:hover {
   background: var(--bg-history-item-hover);
   border-color: var(--border-primary);
+}
+
+.history-item p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ===================== */

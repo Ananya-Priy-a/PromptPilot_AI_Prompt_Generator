@@ -10,6 +10,8 @@ function Input({
   setError,
   history,
   setHistory,
+  model,
+  setModel,
 }) {
 
   const handleSend = async () => {
@@ -30,7 +32,7 @@ function Input({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          prompt,
+          prompt, model,
         }),
       });
 
@@ -72,11 +74,22 @@ function Input({
         onChange={(e) => setPrompt(e.target.value)}
       />
 
-      <Button
-        text="Send"
-        className="send-btn"
-        onClick={handleSend}
-      />
+      <div className="action-row">
+        <select
+          className="model-selector"
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+        >
+          <option value="fast">Fast</option>
+          <option value="balanced">Balanced</option>
+          <option value="deep">Deep Thinking</option>
+        </select>
+        <Button
+          text="Send"
+          className="send-btn"
+          onClick={handleSend}
+        />
+      </div>
       {loading && <p>Generating response...</p>}
 
       {error && <p>{error}</p>}

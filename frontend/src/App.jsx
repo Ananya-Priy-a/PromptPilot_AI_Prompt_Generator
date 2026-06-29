@@ -9,6 +9,7 @@ function App() {
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [model, setModel] = useState("fast");
 
   const [history, setHistory] = useState(
     JSON.parse(localStorage.getItem("history")) || []
@@ -37,6 +38,8 @@ function App() {
           setError={setError}
           history={history}
           setHistory={setHistory}
+          model={model}
+          setModel={setModel}
         />
       </main>
     </div>
