@@ -366,6 +366,14 @@ textarea::placeholder {
   transition: all 0.3s ease;
 }
 
+.history-model {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
 .history-item:hover {
   background: var(--bg-history-item-hover);
   border-color: var(--border-primary);

@@ -48,6 +48,12 @@ function Sidebar({ setPrompt, setResponse, setError, history, setLoading, setHis
             className="history-item"
             onClick={() => openChat(chat)}
           >
+            <small className="history-model">
+              {chat.model === "fast" && "Fast"}
+              {chat.model === "balanced" && "Balanced"}
+              {chat.model === "deep" && "Deep Thinking"}
+            </small>
+
             <p>{chat.prompt}</p>
           </div>
         ))}
