@@ -1,3 +1,6 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
 import Button from "../ui/Button";
 function Input({
   prompt,
@@ -97,7 +100,14 @@ function Input({
       {response && (
         <div className="response-box">
           <h3>Response</h3>
-          <p>{response}</p>
+
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
+          >
+            {response}
+          </ReactMarkdown>
+
         </div>
       )}
 
