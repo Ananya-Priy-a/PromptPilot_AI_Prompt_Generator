@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 import logo from "../../assets/logo.png";
 
-function Sidebar({ setPrompt, setResponse, setError, history, setLoading, setHistory }) {
+function Sidebar({ setPrompt, setResponse, setError, history, setLoading, setHistory, setModel }) {
   const clearChat = () => {
     setPrompt("");
     setResponse("");

@@ -24,6 +24,7 @@ function App() {
         history={history}
         setLoading={setLoading}
         setHistory={setHistory}
+        setModel={setModel}
       />
 
       <main className="main">
