@@ -23,6 +23,7 @@ function App() {
         setError={setError}
         history={history}
         setLoading={setLoading}
+        setHistory={setHistory}
       />
 
       <main className="main">

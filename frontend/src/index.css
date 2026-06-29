@@ -186,7 +186,7 @@ textarea::placeholder {
 /* BUTTONS */
 /* ===================== */
 
-.sidebar-home,
+.sidebar-clearHistory,
 .sidebar-newc {
   width: 100%;
   padding: 14px;
@@ -215,7 +215,7 @@ textarea::placeholder {
 }
 
 .send-btn:hover,
-.sidebar-home:hover,
+.sidebar-clearHistory:hover,
 .sidebar-newc:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px var(--color-primary-glow);

@@ -45,7 +45,7 @@ function Input({
 
       const newChat = {
         prompt,
-        response: data.response,
+        response: data.response, model,
       };
 
       const updatedHistory = [...history, newChat];

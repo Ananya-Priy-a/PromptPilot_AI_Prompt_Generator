@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 import logo from "../../assets/logo.png";
 
-function Sidebar({ setPrompt, setResponse, setError, history, setLoading }) {
+function Sidebar({ setPrompt, setResponse, setError, history, setLoading, setHistory }) {
   const clearChat = () => {
     setPrompt("");
     setResponse("");
@@ -10,9 +10,15 @@ function Sidebar({ setPrompt, setResponse, setError, history, setLoading }) {
   const openChat = (chat) => {
     setPrompt(chat.prompt);
     setResponse(chat.response);
+    setModel(chat.model);
     setError("");
     setLoading(false);
   };
+  const clearHistory = (chat) => {
+    setHistory([]);
+    localStorage.removeItem("history");
+
+  }
 
   return (
     <aside className="sidebar">
@@ -22,15 +28,15 @@ function Sidebar({ setPrompt, setResponse, setError, history, setLoading }) {
       </div>
 
       <Button
-        text="Home"
-        className="sidebar-home"
+        text="New Chat"
+        className="sidebar-newc"
         onClick={clearChat}
       />
 
       <Button
-        text="New Chat"
-        className="sidebar-newc"
-        onClick={clearChat}
+        text="Clear History"
+        className="sidebar-clearHistory"
+        onClick={clearHistory}
       />
 
       <div className="history">
